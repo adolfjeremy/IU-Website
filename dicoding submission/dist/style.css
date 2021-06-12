@@ -1,0 +1,885 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #0a0a0a;
+  width: 100%;
+  color: #eeeeee;
+}
+
+main {
+  margin: 0 auto;
+  padding: 0 150px;
+  min-height: 100vh;
+}
+
+article {
+  min-height: 100vh;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+strong {
+  color: #00adb5;
+}
+
+a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+p {
+  color: #eeeeee;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media (max-width: 1080px) {
+  main {
+    padding: 0 6.25rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 0 3.125rem;
+  }
+  .dekstop {
+    display: none;
+  }
+  .disable-scroll {
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0 1.5625rem;
+  }
+}
+
+@media (min-width: 1250px) {
+  article {
+    padding: 9.375rem;
+  }
+  .playlist {
+    height: 21.875rem;
+  }
+}
+
+@media (max-width: 480px) and (max-height: 700px) {
+  article {
+    padding-bottom: 10vh;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  article {
+    padding-bottom: 0;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  -webkit-animation: fade-in 300ms ease-in-out forwards;
+          animation: fade-in 300ms ease-in-out forwards;
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  -webkit-animation: fade-out 300ms ease-in-out forwards;
+          animation: fade-out 300ms ease-in-out forwards;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 70px;
+  padding: 0 3.125rem;
+  font-family: "Fira Code", monospace;
+  background-color: rgba(10, 10, 10, 0.85);
+  z-index: 1;
+}
+
+header.open .hamburger span:first-child {
+  width: 30px !important;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+header.open .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+header.open .hamburger span:last-child {
+  width: 30px !important;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+header .overlay {
+  position: fixed;
+  top: 4.375rem;
+  left: 0;
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(29, 28, 28, 0.8);
+  z-index: 2;
+}
+
+header .navbar {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+header .navbar .navbar_logo a {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+header .navbar .navbar_logo a:hover {
+  color: #00adb5;
+  -webkit-transition: 250ms ease-in;
+  transition: 250ms ease-in;
+}
+
+header .navbar .hamburger {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+header .navbar .hamburger span {
+  display: block;
+  border-radius: 1px;
+  background-color: #00adb5;
+  -webkit-transform-origin: 1px 1px;
+          transform-origin: 1px 1px;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+header .navbar .hamburger span:first-child {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 36px;
+  height: 2px;
+}
+
+header .navbar .hamburger span:nth-child(2) {
+  position: absolute;
+  right: 0;
+  top: 0.625rem;
+  width: 30px;
+  height: 2px;
+}
+
+header .navbar .hamburger span:last-child {
+  position: absolute;
+  right: 0;
+  top: 1.25rem;
+  width: 24px;
+  height: 2px;
+}
+
+header .navbar_menu ul li {
+  margin: 0 1.25rem;
+  text-align: center;
+}
+
+header .navbar_menu ul li a:hover {
+  color: #00adb5;
+  -webkit-transition: 250ms ease-in;
+  transition: 250ms ease-in;
+}
+
+header .dropdown {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: calc(100% - 60px);
+  padding: 1.25rem;
+  background-color: #0a0a0a;
+  z-index: 3;
+}
+
+header .dropdown ul {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
+header .dropdown ul li:not(:last-child) {
+  margin-bottom: 1.5625rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    padding: 0 1.25rem;
+  }
+}
+
+#home {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#home .home_wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#home .home_wrapper h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6.4vw, 3.75rem);
+  font-family: "Fira Code", monospace;
+  font-weight: 400;
+  color: #00adb5;
+  text-align: center;
+}
+
+#home .home_wrapper h2 {
+  margin: 0;
+  font-size: clamp(2.1875rem, 8vw, 5rem);
+  color: #eeeeee;
+  text-align: center;
+}
+
+#home .home_wrapper p {
+  color: #eeeeee;
+  font-size: clamp(0.75rem, 4.2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0.625rem;
+  text-align: center;
+}
+
+#home .hero {
+  position: relative;
+  z-index: 0;
+}
+
+#home .hero img {
+  position: relative;
+  width: 230px;
+  height: 345px;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+#home .hero::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 1.25rem;
+  width: 230px;
+  height: 345px;
+  border: 3px solid #00adb5;
+  border-radius: 10px;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  z-index: -3;
+}
+
+#home .hero.hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 230px;
+  height: 345px;
+  background-color: rgba(30, 174, 152, 0.5);
+  border-radius: 10px;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  z-index: 0;
+}
+
+#home .hero:hover::before {
+  background-color: rgba(30, 174, 152, 0);
+}
+
+@media (max-width: 768px) {
+  #home {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #home .home_wrapper {
+    margin-top: 3.125rem;
+  }
+  #home .home_wrapper p {
+    margin: 0;
+  }
+  #home .hero {
+    margin-top: 4.0625rem;
+  }
+}
+
+@media (max-width: 320px) {
+  #home .home_wrapper {
+    margin-top: 0;
+  }
+  #home .hero {
+    margin-top: 2.5rem;
+  }
+  #home .hero::after {
+    display: none;
+  }
+}
+
+#about {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#about h2 {
+  color: #eeeeee;
+}
+
+#about p {
+  text-align: center;
+  line-height: 1.3;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  #about p {
+    text-align: start;
+  }
+}
+
+#topTenPlaylist {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#topTenPlaylist h2 {
+  color: #eeeeee;
+}
+
+#topTenPlaylist p {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  text-align: center;
+  color: #eeeeee;
+  margin: 0;
+}
+
+#topTenPlaylist p:first-child {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  text-align: left;
+  padding-left: 60px;
+}
+
+#topTenPlaylist .playlist {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 230px;
+  margin-top: 1.25rem;
+  padding: 0.625rem;
+  font-family: "Fira Code", monospace;
+  background-color: rgba(37, 37, 37, 0.5);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper {
+  font-family: "Poppins", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 50px;
+  -webkit-box-shadow: 1px 1px 5px #0a0a0a;
+          box-shadow: 1px 1px 5px #0a0a0a;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song .image-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song .image-title img {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.625rem;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song .image-title a {
+  color: #eeeeee;
+  font-size: clamp(0.75rem, 3.6vw, 1rem);
+  font-weight: 300;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song .image-title a:hover {
+  color: #00adb5;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song .album-year {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+#topTenPlaylist .playlist .playlist_wrapper .song .album-year p {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #eeeeee;
+  font-size: clamp(0.625rem, 3.6vw, 1rem);
+}
+
+@media (max-width: 550px) {
+  .album-year {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#topThreeKdrama {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#topThreeKdrama .drama_heading {
+  font-family: "Fira Code", monospace;
+  color: #eeeeee;
+}
+
+#topThreeKdrama .drama_wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#topThreeKdrama .drama_wrapper .dramas {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  padding: 0.9375rem 1.25rem;
+  background-color: rgba(37, 37, 37, 0.5);
+  border-radius: 10px;
+}
+
+#topThreeKdrama .drama_wrapper .dramas img {
+  border-radius: 10px;
+}
+
+#topThreeKdrama .drama_wrapper .dramas p {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .title {
+  font-size: 0.9375rem;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .dramas_rating {
+  margin-right: 0.625rem;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .dramas_rating img {
+  width: 20px;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .star {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .star a {
+  font-size: 0.625rem;
+  color: #00adb5;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .star span {
+  color: #eeeeee;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .playbutton {
+  position: relative;
+  bottom: 12.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .playbutton .background {
+  position: absolute;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  background-color: rgba(0, 172, 181, 0.75);
+}
+
+#topThreeKdrama .drama_wrapper .dramas .playbutton a {
+  position: absolute;
+  left: -15px;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .playbutton a img {
+  width: 2.1875rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#topThreeKdrama .drama_wrapper .dramas .playbutton a img:hover {
+  width: 2.35rem;
+  -webkit-transition: 150ms ease-out;
+  transition: 150ms ease-out;
+}
+
+@media screen and (max-width: 768px) {
+  #topThreeKdrama .drama_wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #topThreeKdrama .drama_wrapper .dramas {
+    margin: 1.25rem 0;
+  }
+}
+
+aside {
+  margin-bottom: 3.125rem;
+}
+
+aside article {
+  margin-top: 1.25rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+aside article .mee {
+  position: relative;
+}
+
+aside article .mee img {
+  position: relative;
+  width: 230px;
+  height: 345px;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+aside article .mee::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 230px;
+  height: 345px;
+  background-color: rgba(30, 174, 152, 0.5);
+  border-radius: 10px;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  z-index: 0;
+}
+
+aside article .mee:hover::before {
+  background-color: rgba(30, 174, 152, 0);
+}
+
+aside article div {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+aside article div p {
+  font-size: 1rem;
+}
+
+aside article a {
+  font-size: 1rem;
+  color: #00adb5;
+  padding: 15px 20px;
+  margin-top: 1.25rem;
+  border-radius: 10px;
+  border: 2px solid #00adb5;
+}
+
+aside article a:hover {
+  background-color: rgba(238, 238, 238, 0.05);
+  -webkit-transition: 150ms ease-in;
+  transition: 150ms ease-in;
+}
+
+@media (max-width: 768px) {
+  aside article div {
+    text-align: start;
+  }
+}
+
+footer {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #00adb5;
+  padding: 2.5rem;
+}
+
+footer p {
+  margin: 0;
+  font-weight: 700;
+  color: #0a0a0a;
+}
+
+footer div {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer div a img {
+  width: 70px;
+  height: 70px;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 1.25rem;
+  }
+  footer div {
+    margin-top: -0.625rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,131 @@
+header {
+    position: fixed;
+    top: 0;
+    align-items: center;
+    width: 100vw;
+    height: 70px;
+    padding: 0 3.125rem; // **px devided by 16
+    font-family: "Fira Code", monospace;
+    background-color: rgba(10, 10, 10, 0.85);
+    z-index: 1;
+    &.open {
+        .hamburger {
+            span {
+                &:first-child {
+                    width: 30px !important;
+                    transform: rotate(45deg);
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:last-child {
+                    width: 30px !important;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+    .overlay {
+        position: fixed;
+        top: 4.375rem;
+        left: 0;
+        opacity: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(29, 28, 28, 0.8);
+        z-index: 2;
+    }
+    .navbar {
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .navbar_logo {
+            a {
+                font-weight: 800;
+                font-size: 1rem;
+                &:hover {
+                    color: #00adb5;
+                    transition: 250ms ease-in;
+                }
+            }
+        }
+        .hamburger {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            span {
+                display: block;
+                border-radius: 1px;
+                background-color: #00adb5;
+                transform-origin: 1px 1px;
+                transition: 300ms ease-in-out;
+                &:first-child {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 36px;
+                    height: 2px;
+                }
+                &:nth-child(2) {
+                    position: absolute;
+                    right: 0;
+                    top: 0.625rem;
+                    width: 30px;
+                    height: 2px;
+                }
+                &:last-child {
+                    position: absolute;
+                    right: 0;
+                    top: 1.25rem;
+                    width: 24px;
+                    height: 2px;
+                }
+            }
+        }
+        &_menu {
+            ul {
+                li {
+                    margin: 0 1.25rem;
+                    text-align: center;
+                    a {
+                        &:hover {
+                            color: #00adb5;
+                            transition: 250ms ease-in;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .dropdown {
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 60px);
+        padding: 1.25rem;
+        background-color: #0a0a0a;
+        z-index: 3;
+        ul {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            li {
+                &:not(:last-child) {
+                    margin-bottom: 1.5625rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        padding: 0 1.25rem;
+    }
+}

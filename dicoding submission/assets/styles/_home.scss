@@ -1,0 +1,96 @@
+#home {
+    justify-content: space-between;
+    align-items: center;
+    .home_wrapper {
+        flex-direction: column;
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 6.4vw, 3.75rem);
+            font-family: "Fira Code", monospace;
+            font-weight: 400;
+            color: #00adb5;
+            text-align: center;
+        }
+        h2 {
+            margin: 0;
+            font-size: clamp(2.1875rem, 8vw, 5rem);
+            color: #eeeeee;
+            text-align: center;
+        }
+        p {
+            color: #eeeeee;
+            font-size: clamp(0.75rem, 4.2vw, 1.25rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin: 0.625rem;
+            text-align: center;
+        }
+    }
+    .hero {
+        position: relative;
+        z-index: 0;
+        img {
+            position: relative;
+            width: 230px;
+            height: 345px;
+            border-radius: 10px;
+            z-index: -1;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 1.25rem;
+            top: 1.25rem;
+            width: 230px;
+            height: 345px;
+            border: 3px solid #00adb5;
+            border-radius: 10px;
+            transition: 250ms ease-in-out;
+            z-index: -3;
+        }
+        &.hero::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 230px;
+            height: 345px;
+            background-color: rgba(30, 174, 152, 0.5);
+            border-radius: 10px;
+            transition: 250ms ease-in-out;
+            z-index: 0;
+        }
+        &:hover::before {
+            background-color: rgba(30, 174, 152, 0);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    #home {
+        flex-direction: column-reverse;
+        justify-content: center;
+        .home_wrapper {
+            margin-top: 3.125rem;
+            p {
+                margin: 0;
+            }
+        }
+        .hero {
+            margin-top: 4.0625rem;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    #home {
+        .home_wrapper {
+            margin-top: 0;
+        }
+        .hero {
+            margin-top: 2.5rem;
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
